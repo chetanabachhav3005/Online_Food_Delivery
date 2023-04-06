@@ -7,7 +7,7 @@ import com.hdfc.midterm.foodapp.repository.RestaurantsRepository;
 
 @Service
 public class RestaurantsServiceImp implements IRestaurantsService {
-
+//
 	@Autowired
 	RestaurantsRepository repo;
 }

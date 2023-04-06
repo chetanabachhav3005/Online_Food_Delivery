@@ -7,7 +7,7 @@ import com.hdfc.midterm.foodapp.repository.Menu_ItemsRepository;
 
 @Service
 public class Menu_ItemsServiceImp implements IMenu_ItemsService{
-
+//
 	@Autowired
 	Menu_ItemsRepository repo;
 }
