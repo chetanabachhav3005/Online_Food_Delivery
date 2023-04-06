@@ -9,7 +9,7 @@ import com.hdfc.midterm.foodapp.service.IRestaurantsService;
 @RestController
 @RequestMapping
 public class RestaurantsRestController {
-	
+//	
 	@Autowired
 	IRestaurantsService service;
 }
