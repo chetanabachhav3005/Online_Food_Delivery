@@ -8,5 +8,5 @@ import com.hdfc.midterm.foodapp.entity.Restaurants;
 
 @Repository
 public interface RestaurantsRepository extends JpaRepository<Restaurants, Long>{
-
+//
 }

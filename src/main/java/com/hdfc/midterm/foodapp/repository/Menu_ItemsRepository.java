@@ -7,5 +7,5 @@ import com.hdfc.midterm.foodapp.entity.Menu_Items;
 
 @Repository
 public interface Menu_ItemsRepository extends JpaRepository<Menu_Items, Long> {
-
+//
 }
