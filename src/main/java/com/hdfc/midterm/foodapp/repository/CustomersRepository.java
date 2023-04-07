@@ -7,5 +7,7 @@ import com.hdfc.midterm.foodapp.entity.Customers;
 
 @Repository
 public interface CustomersRepository extends JpaRepository<Customers, Long> {
-//
+
+	
+	
 }
