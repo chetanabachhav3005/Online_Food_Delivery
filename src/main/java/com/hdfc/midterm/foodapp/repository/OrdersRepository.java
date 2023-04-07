@@ -8,5 +8,6 @@ import com.hdfc.midterm.foodapp.entity.Orders;
 
 @Repository
 public interface OrdersRepository extends JpaRepository<Orders, Long>{
-//
+
+	
 }
