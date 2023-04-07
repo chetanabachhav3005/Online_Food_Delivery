@@ -1,6 +1,7 @@
 package com.hdfc.midterm.foodapp.DTO;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,13 +15,14 @@ import lombok.ToString;
 @Getter
 @ToString
 
-
-public class Customers {	
-	private long customer_id;
+@Entity
+public class Customers {
+	@Id
+	private long customerId;
 	private String name;
 	private String email;
-	private long phone_number;
-	private String delivery_address;	
+	private long phoneNumber;
+	private String deliveryAddress;	
 }
 
 

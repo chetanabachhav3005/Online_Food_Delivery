@@ -1,6 +1,7 @@
 package com.hdfc.midterm.foodapp.DTO;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,16 +15,16 @@ import lombok.ToString;
 @Getter
 @ToString
 
-
+@Entity
 public class Menu_Items {
 
-	
-	private long menu_item_id;
-	private long restaurant_id;
-	private String item_name;
+	@Id
+	private long menuItemId;
+	private long restaurantId;
+	private String itemName;
 	private String description;
 	private double price;
-	private String availability;
+	private boolean availability;
 	
 }
 
