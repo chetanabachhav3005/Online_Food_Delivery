@@ -1,4 +1,4 @@
-package com.hdfc.midterm.foodapp.DTO;
+package com.hdfc.midterm.foodapp.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,22 +9,32 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@NoArgsConstructor
+
 @AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
 @ToString
 
 @Entity
-public class Menu_Items {
+public class Cart {
 
+	
 	@Id
-	private long menuItemId;
-	private long restaurantId;
-	private String itemName;
-	private String description;
+	private long cartId;
+	
+	private long customerId;
+	private long itemId;
 	private double price;
-	private boolean availability;
+	private int quantity;
+	private double total;
+	
+	
+	
+
+	
+	
+	
+	
 	
 }
-

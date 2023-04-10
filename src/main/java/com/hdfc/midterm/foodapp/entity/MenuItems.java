@@ -1,4 +1,4 @@
-package com.hdfc.midterm.foodapp.DTO;
+package com.hdfc.midterm.foodapp.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,13 +16,15 @@ import lombok.ToString;
 @ToString
 
 @Entity
-public class Customers {
-	@Id
-	private long customerId;
-	private String name;
-	private String email;
-	private long phoneNumber;
-	private String deliveryAddress;	
-}
+public class MenuItems {
 
+	@Id
+	private long menuItemId;
+	private long restaurantId;
+	private String itemName;
+	private String description;
+	private double price;
+	private boolean availability;
+	
+}
 

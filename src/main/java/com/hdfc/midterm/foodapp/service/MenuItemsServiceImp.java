@@ -2,21 +2,24 @@ package com.hdfc.midterm.foodapp.service;
 
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.hdfc.midterm.foodapp.entity.Menu_Items;
+
+import com.hdfc.midterm.foodapp.entity.MenuItems;
+
 import com.hdfc.midterm.foodapp.exception.ItemException;
-import com.hdfc.midterm.foodapp.repository.Menu_ItemsRepository;
+import com.hdfc.midterm.foodapp.repository.MenuItemsRepository;
 
 @Service
-public class Menu_ItemsServiceImp implements IMenu_ItemsService {
+public class MenuItemsServiceImp implements IMenuItemsService {
 
 	@Autowired
-	Menu_ItemsRepository repo;
+	MenuItemsRepository repo;
 
 	@Override
-	public Menu_Items addItem(Menu_Items item) throws ItemException {
-		Optional<Menu_Items> opt = repo.findById(item.getMenuItemId());
+	public MenuItems addItem(MenuItems item) throws ItemException {
+		Optional<MenuItems> opt = repo.findById(item.getMenuItemId());
 		if (opt.isPresent()) {
 			throw new ItemException("Item already exists..");
 		} else {
@@ -25,8 +28,8 @@ public class Menu_ItemsServiceImp implements IMenu_ItemsService {
 	}
 
 	@Override
-	public Menu_Items updateItem(Menu_Items item) throws ItemException {
-		Optional<Menu_Items> opt = repo.findById(item.getMenuItemId());
+	public MenuItems updateItem(MenuItems item) throws ItemException {
+		Optional<MenuItems> opt = repo.findById(item.getMenuItemId());
 		if (opt.isPresent()) {
 			return repo.save(item);
 		} else {
@@ -35,8 +38,8 @@ public class Menu_ItemsServiceImp implements IMenu_ItemsService {
 	}
 
 	@Override
-	public Menu_Items viewItem(Long menuItemId) throws ItemException {
-		Optional<Menu_Items> opt = repo.findById(menuItemId);
+	public MenuItems viewItem(Long menuItemId) throws ItemException {
+		Optional<MenuItems> opt = repo.findById(menuItemId);
 		if (opt.isPresent()) {
 			return opt.get();
 		} else {
@@ -45,10 +48,10 @@ public class Menu_ItemsServiceImp implements IMenu_ItemsService {
 	}
 
 	@Override
-	public Menu_Items removeItem(Long menuItemId) throws ItemException {
-		Optional<Menu_Items> opt = repo.findById(menuItemId);
+	public MenuItems removeItem(Long menuItemId) throws ItemException {
+		Optional<MenuItems> opt = repo.findById(menuItemId);
 		if (opt.isPresent()) {
-			Menu_Items item = opt.get();
+			MenuItems item = opt.get();
 			repo.delete(item);
 			return item;
 		} else {
@@ -57,8 +60,8 @@ public class Menu_ItemsServiceImp implements IMenu_ItemsService {
 	}
 
 	@Override
-	public List<Menu_Items> viewAllItems() throws ItemException {
-		List<Menu_Items> items = repo.findAll();
+	public List<MenuItems> viewAllItems() throws ItemException {
+		List<MenuItems> items = repo.findAll();
 		if (items.size() > 0) {
 			return items;
 		} else {

@@ -27,7 +27,7 @@ public class RestaurantsRestController {
 	@Autowired
 	IRestaurantsService service;
 
-	@PostMapping("/add")
+	@PostMapping("/add/restaurant")
 	public ResponseEntity<Restaurants> saveResturant(@Valid @RequestBody Restaurants restaurant)
 			throws RestaurantException {
 
@@ -36,7 +36,7 @@ public class RestaurantsRestController {
 		return new ResponseEntity<Restaurants>(newRestaurant, HttpStatus.CREATED);
 	}
 
-	@PutMapping("/update")
+	@PutMapping("/update/restaurant")
 	public ResponseEntity<Restaurants> updateResturant(@Valid @RequestBody Restaurants restaurant)
 			throws RestaurantException {
 
@@ -45,14 +45,14 @@ public class RestaurantsRestController {
 		return new ResponseEntity<Restaurants>(updatedResturant, HttpStatus.ACCEPTED);
 	}
 
-	@DeleteMapping("/remove/{restaurantId}")
+	@DeleteMapping("/remove/restaurant/{restaurantId}")
 	public ResponseEntity<Restaurants> deleteRestaurant(@PathVariable("restaurantId") Long restaurantId)
 			throws RestaurantException {
 		Restaurants removedRestaurant = service.removeRestaurant(restaurantId);
 		return new ResponseEntity<Restaurants>(removedRestaurant, HttpStatus.OK);
 	}
 
-	@GetMapping("/view/{restaurantId}")
+	@GetMapping("/view/restaurant/{restaurantId}")
 	public ResponseEntity<Restaurants> getByResturantId(@PathVariable("restaurantId") Long restaurantId)
 			throws RestaurantException {
 

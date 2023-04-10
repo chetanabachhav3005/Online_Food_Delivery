@@ -13,18 +13,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hdfc.midterm.foodapp.entity.Orders;
-import com.hdfc.midterm.foodapp.entity.Restaurants;
 import com.hdfc.midterm.foodapp.exception.OrderException;
 import com.hdfc.midterm.foodapp.service.IOrdersService;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/order")
 public class OrderRestController {
-//
+
 	@Autowired
 	IOrdersService service;
 
-	@PostMapping("/save")
+	@PostMapping("/save/order")
 	public ResponseEntity<Orders> saveOrder(@RequestBody Orders order) throws OrderException {
 
 		Orders order1 = service.addOrder(order);
@@ -32,7 +31,7 @@ public class OrderRestController {
 		return new ResponseEntity<Orders>(order1, HttpStatus.CREATED);
 	}
 
-	@PutMapping("/update")
+	@PutMapping("/update/order")
 	public ResponseEntity<Orders> updateOrder(@RequestBody Orders order) throws OrderException {
 		Orders order1 = service.updateOrder(order);
 
@@ -40,7 +39,7 @@ public class OrderRestController {
 
 	}
 
-	@DeleteMapping("/remove/{orderId}")
+	@DeleteMapping("/remove/order/{orderId}")
 	public ResponseEntity<Orders> deleteOrder(@PathVariable("orderId") Long orderId) throws OrderException {
 
 		Orders order = service.removeOrder(orderId);
@@ -48,7 +47,7 @@ public class OrderRestController {
 		return new ResponseEntity<Orders>(order, HttpStatus.CREATED);
 	}
 
-	@GetMapping("/view/{orderId}")
+	@GetMapping("/view/order/{orderId}")
 	public ResponseEntity<Orders> viewOrder(@PathVariable("orderId") Long orderId) throws OrderException {
 
 		Orders order = service.viewOrder(orderId);

@@ -1,9 +1,6 @@
-package com.hdfc.midterm.foodapp.DTO;
+package com.hdfc.midterm.foodapp.dto;
 
 import java.time.LocalDate;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,9 +14,8 @@ import lombok.ToString;
 @Setter
 @ToString
 
-@Entity
-public class Orders {
-	@Id
+public class OrdersDto {
+
     private long orderId;
     private long customerId;
     private long restaurant_id;

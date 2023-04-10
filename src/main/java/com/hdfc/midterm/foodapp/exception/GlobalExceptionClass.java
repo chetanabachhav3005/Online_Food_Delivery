@@ -59,4 +59,15 @@ public class GlobalExceptionClass {
 		
 	}
 	
+	
+	@ExceptionHandler(CartException.class)
+	public ResponseEntity<ErrorDetails>  handleExp(CartException ce){
+		ErrorDetails err = new ErrorDetails();
+		
+		err.setMessage(ce.getMessage());
+		
+		return  new ResponseEntity<ErrorDetails>(err,HttpStatus.EXPECTATION_FAILED);
+		
+	}
+	
 }
