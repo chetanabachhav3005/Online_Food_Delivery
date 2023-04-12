@@ -2,6 +2,8 @@ package com.hdfc.midterm.foodapp.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,13 +29,13 @@ public class MenuItemsRestController {
 	
 	
 	@PostMapping("/add/item")
-	public ResponseEntity<MenuItems> addItem(@RequestBody MenuItems item) throws ItemException{
+	public ResponseEntity<MenuItems> addItem(@Valid @RequestBody MenuItems item) throws ItemException{
 		MenuItems newItem = service.addItem(item);
 		return new ResponseEntity<MenuItems>(newItem, HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/update/item")
-	public ResponseEntity<MenuItems> updateItem(@RequestBody MenuItems item) throws ItemException{
+	public ResponseEntity<MenuItems> updateItem(@Valid @RequestBody MenuItems item) throws ItemException{
 		MenuItems updatedItem = service.updateItem(item);
 		return new ResponseEntity<MenuItems>(updatedItem, HttpStatus.OK);
 	}

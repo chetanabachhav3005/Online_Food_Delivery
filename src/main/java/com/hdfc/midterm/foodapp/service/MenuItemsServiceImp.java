@@ -20,6 +20,7 @@ public class MenuItemsServiceImp implements IMenuItemsService {
 	@Override
 	public MenuItems addItem(MenuItems item) throws ItemException {
 		Optional<MenuItems> opt = repo.findById(item.getMenuItemId());
+		
 		if (opt.isPresent()) {
 			throw new ItemException("Item already exists..");
 		} else {

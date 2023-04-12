@@ -5,13 +5,14 @@ import com.hdfc.midterm.foodapp.entity.Payment;
 import com.hdfc.midterm.foodapp.exception.PaymentException;
 
 public interface IPaymentService {
+	
+	
+	
 	public Payment addPayment(PaymentDto paymentDto) throws PaymentException;
 	
 	public Payment updatePayment(Payment payment)throws PaymentException;
 	
-	public Payment removePayment(Integer paymentId)throws PaymentException;
-	
-	public Payment viewPayment(Integer paymentId)throws PaymentException;
+	public Payment viewPayment(int paymentId)throws PaymentException;
 
 	
 }

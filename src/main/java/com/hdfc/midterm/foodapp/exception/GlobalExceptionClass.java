@@ -70,4 +70,26 @@ public class GlobalExceptionClass {
 		
 	}
 	
+	
+	@ExceptionHandler(PaymentException.class)
+	public ResponseEntity<ErrorDetails>  handleExp(PaymentException ce){
+		ErrorDetails err = new ErrorDetails();
+		
+		err.setMessage(ce.getMessage());
+		
+		return  new ResponseEntity<ErrorDetails>(err,HttpStatus.EXPECTATION_FAILED);
+		
+	}
+	
+	
+	@ExceptionHandler(AddressException.class)
+	public ResponseEntity<ErrorDetails>  handleExp(AddressException ce){
+		ErrorDetails err = new ErrorDetails();
+		
+		err.setMessage(ce.getMessage());
+		
+		return  new ResponseEntity<ErrorDetails>(err,HttpStatus.EXPECTATION_FAILED);
+		
+	}
+	
 }

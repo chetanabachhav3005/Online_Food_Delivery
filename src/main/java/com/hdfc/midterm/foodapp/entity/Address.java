@@ -7,13 +7,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,43 +22,31 @@ import lombok.ToString;
 @ToString
 
 @Entity
-@Table(name="Cart")
-public class Cart {
+@Table(name = "Address")
+public class Address {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(unique=true,name="Cart_Id")
-	private long cartId;
-	
-	@Column(name="Customer_Id")
-	@NotNull
-	private long customerId;
-	
-	
-	@Column(name="Item_Id")
-	@NotNull
-	private long itemId;
-	
-	
-	@Column(name="Price")
-	@NotNull
-	private double price;
-	
-	@Column(name="Quantity")
-	@NotNull
-	private int quantity;
-	
-	@Column(name="Total")
-	@NotNull
-	private double total;
-	
-	
-	
+	@Column(name = "Address_Id")
+	private Integer addressId;
 
-	
-	
-	
-	
-	
+	@Column(name = "Area")
+	@NotNull
+	private String area;
+
+	@Column(name = "City")
+	@NotNull
+	private String city;
+
+	@Column(name = "State")
+	@NotNull
+	private String state;
+
+	@Column(name = "Country")
+	@NotNull
+	private String country;
+
+	@Column(unique=true,name = "PinCode")
+	@NotNull
+	private int pincode;
 }

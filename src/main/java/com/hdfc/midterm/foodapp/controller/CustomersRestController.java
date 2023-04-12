@@ -1,5 +1,7 @@
 package com.hdfc.midterm.foodapp.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,13 +26,13 @@ public class CustomersRestController {
 
 
 	  @PostMapping("/add/customer") 
-	  public ResponseEntity<Customers> addCustomer(@RequestBody Customers customer) throws CustomerException{
+	  public ResponseEntity<Customers> addCustomer(@Valid @RequestBody Customers customer) throws CustomerException{
 	  Customers newCustomer =service.addCustomer(customer); 
 	  return new ResponseEntity<Customers>(newCustomer, HttpStatus.CREATED); }
 	
 
 	@PutMapping("/update/customer")
-	public ResponseEntity<Customers> updateCustomer(@RequestBody Customers customer) throws CustomerException {
+	public ResponseEntity<Customers> updateCustomer(@Valid @RequestBody Customers customer) throws CustomerException {
 		Customers updatedCustomer = service.updateCustomer(customer);
 		return new ResponseEntity<Customers>(updatedCustomer, HttpStatus.ACCEPTED);
 	}

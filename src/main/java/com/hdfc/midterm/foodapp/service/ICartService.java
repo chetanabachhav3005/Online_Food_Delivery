@@ -5,6 +5,7 @@ import com.hdfc.midterm.foodapp.entity.Cart;
 import com.hdfc.midterm.foodapp.exception.CartException;
 
 public interface ICartService {
+	
 	public Cart saveCart(CartDto cartDto) throws CartException;
 
 	

@@ -1,15 +1,10 @@
 package com.hdfc.midterm.foodapp.dto;
 
-import java.time.LocalDateTime;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
-
-
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,17 +12,17 @@ import lombok.ToString;
 @Getter
 @ToString
 
+public class AddressDto {
 
+	private Integer addressId;
 
-public class PaymentDto {
-	
-	private Integer paymentId;
-	private LocalDateTime paymentDate;
-	private Double totalCost;
-	private Integer totalItem;
-	
+	private String area;
 
+	private String city;
 
-	
-	
+	private String state;
+
+	private String country;
+
+	private int pincode;
 }

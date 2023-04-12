@@ -1,5 +1,7 @@
 package com.hdfc.midterm.foodapp.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +27,7 @@ public class CartRestController {
 	ICartService service;
 
 	@PostMapping("/register")
-	public ResponseEntity<Cart> saveCartDetails(@RequestBody CartDto fc) throws CartException {
+	public ResponseEntity<Cart> saveCartDetails(@Valid @RequestBody CartDto fc) throws CartException {
 
 		Cart c = service.saveCart(fc);
 		return new ResponseEntity<Cart>(c, HttpStatus.CREATED);
