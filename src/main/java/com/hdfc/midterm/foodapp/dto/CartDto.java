@@ -1,4 +1,13 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Cart DTO Class for Cart Entity Class
+*/ 
 package com.hdfc.midterm.foodapp.dto;
+
+import java.util.List;
+
+import com.hdfc.midterm.foodapp.entity.MenuItems;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,10 +30,10 @@ public class CartDto {
 	private long cartId;
 	
 	private long customerId;
-	private long itemId;
-	private double price;
-	private int quantity;
-	private double total;
+
+	private List<MenuItems> itemList;
+	
+	
 	
 	
 	

@@ -1,3 +1,8 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Items DTO Class for Items Entity Class
+*/ 
 package com.hdfc.midterm.foodapp.dto;
 
 import lombok.AllArgsConstructor;
@@ -17,11 +22,11 @@ public class MenuItemsDto {
 
 	
 	private long menuItemId;
-	private long restaurantId;
 	private String itemName;
 	private String description;
 	private double price;
 	private boolean availability;
+	private Integer quantity;
 	
 }
 

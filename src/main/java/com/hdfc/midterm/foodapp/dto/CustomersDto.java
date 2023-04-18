@@ -1,3 +1,9 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Customer DTO Class for Customer Entity Class
+*/ 
+
 package com.hdfc.midterm.foodapp.dto;
 
 import lombok.AllArgsConstructor;
@@ -18,7 +24,8 @@ public class CustomersDto {
 	private String name;
 	private String email;
 	private long phoneNumber;
-	private String deliveryAddress;	
+
+	
 }
 
 

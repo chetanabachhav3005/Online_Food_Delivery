@@ -1,3 +1,8 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Address Entity Class
+*/ 
 package com.hdfc.midterm.foodapp.entity;
 
 import javax.persistence.Column;
@@ -7,7 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -49,4 +53,5 @@ public class Address {
 	@Column(unique=true,name = "PinCode")
 	@NotNull
 	private int pincode;
+	
 }

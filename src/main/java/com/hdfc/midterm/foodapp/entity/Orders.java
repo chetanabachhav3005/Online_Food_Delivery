@@ -1,12 +1,20 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Order Entity Class
+*/ 
+
 package com.hdfc.midterm.foodapp.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -27,34 +35,14 @@ import lombok.ToString;
 public class Orders {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(unique=true,name = "Order_Id")
+	@Column(unique = true, name = "Order_Id")
 	private long orderId;
-
-	// foreign key
-	@Column(name = "Customer_Id")
-	@NotNull
-	private long customerId;
-
-	// foreign key
-	@Column(name = "Restaurant_Id")
-	@NotNull
-	private long restaurant_id;
 
 	@Column(name = "Order_Date")
 	@NotNull
 	private LocalDate orderDate;
 
-	@Column(name = "Delivery_Address")
-	@NotNull
-	private String deliveryAddress;
-
-	@Column(name = "Payment")
-	@NotNull
-	// paymentMethod
-	private String payment;
-
-	@Column(name = "Total_Amount")
-	@NotNull
-	private double totalAmount;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Cart cart;
 
 }

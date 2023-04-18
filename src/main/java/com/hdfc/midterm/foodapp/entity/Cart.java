@@ -1,12 +1,22 @@
+
+/*
+Author:Chetana Bachhav
+Date:
+Description:Cart Entity Class
+*/ 
 package com.hdfc.midterm.foodapp.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,34 +41,13 @@ public class Cart {
 	@Column(unique=true,name="Cart_Id")
 	private long cartId;
 	
-	@Column(name="Customer_Id")
-	@NotNull
-	private long customerId;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Customers customer;
 	
 	
-	@Column(name="Item_Id")
-	@NotNull
-	private long itemId;
-	
-	
-	@Column(name="Price")
-	@NotNull
-	private double price;
-	
-	@Column(name="Quantity")
-	@NotNull
-	private int quantity;
-	
-	@Column(name="Total")
-	@NotNull
-	private double total;
-	
-	
-	
+	@OneToMany(targetEntity = MenuItems.class,cascade = CascadeType.ALL)
+	private List<MenuItems> itemList;
 
-	
-	
-	
 	
 	
 }

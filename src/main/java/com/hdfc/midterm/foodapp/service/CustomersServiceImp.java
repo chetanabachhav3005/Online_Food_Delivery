@@ -1,12 +1,17 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Customer Service Implementation Class
+*/ 
 package com.hdfc.midterm.foodapp.service;
 
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.hdfc.midterm.foodapp.entity.Customers;
 
+import com.hdfc.midterm.foodapp.entity.Customers;
 import com.hdfc.midterm.foodapp.exception.CustomerException;
-import com.hdfc.midterm.foodapp.exception.ItemException;
 import com.hdfc.midterm.foodapp.repository.CustomersRepository;
 
 @Service

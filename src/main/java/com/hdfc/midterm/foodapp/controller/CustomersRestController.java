@@ -1,3 +1,8 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Customer Rest Controller
+*/
 package com.hdfc.midterm.foodapp.controller;
 
 import javax.validation.Valid;
@@ -17,19 +22,17 @@ import com.hdfc.midterm.foodapp.entity.Customers;
 import com.hdfc.midterm.foodapp.exception.CustomerException;
 import com.hdfc.midterm.foodapp.service.ICustomersService;
 
-
 @RestController
 @RequestMapping("/customer")
 public class CustomersRestController {
 	@Autowired
 	ICustomersService service;
 
-
-	  @PostMapping("/add/customer") 
-	  public ResponseEntity<Customers> addCustomer(@Valid @RequestBody Customers customer) throws CustomerException{
-	  Customers newCustomer =service.addCustomer(customer); 
-	  return new ResponseEntity<Customers>(newCustomer, HttpStatus.CREATED); }
-	
+	@PostMapping("/add/customer")
+	public ResponseEntity<Customers> addCustomer(@Valid @RequestBody Customers customer) throws CustomerException {
+		Customers newCustomer = service.addCustomer(customer);
+		return new ResponseEntity<Customers>(newCustomer, HttpStatus.CREATED);
+	}
 
 	@PutMapping("/update/customer")
 	public ResponseEntity<Customers> updateCustomer(@Valid @RequestBody Customers customer) throws CustomerException {

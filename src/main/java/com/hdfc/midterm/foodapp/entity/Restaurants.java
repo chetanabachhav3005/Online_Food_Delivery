@@ -1,12 +1,23 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Restaurant Entity Class
+*/ 
 package com.hdfc.midterm.foodapp.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,24 +41,22 @@ public class Restaurants {
 	private long restaurantId;
 
 	@Column(name = "Restaurant_Name")
-	@NotNull
 	private String restaurantName;
 
 	@Column(name = "Cuisine_Type")
-	@NotNull
 	private String cuisineType;
 
 	@Column(name = "Location")
-	@NotNull
 	private String location;
+	
 
-	@Column(name = "Ratings")
-	@NotNull
-	private int rating;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "Address_Id")
+	private Address address;
 	
 	
-//	
-//	@OneToOne(cascade = CascadeType.ALL)
-//	private Address address;
+	@OneToMany(targetEntity = MenuItems.class,cascade = CascadeType.MERGE)
+	private List<MenuItems> itemList = new ArrayList<>();
 
 }

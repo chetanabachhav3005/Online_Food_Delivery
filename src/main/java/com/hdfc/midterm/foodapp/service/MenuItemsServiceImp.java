@@ -1,3 +1,8 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Items Service Implementation Class
+*/ 
 package com.hdfc.midterm.foodapp.service;
 
 import java.util.List;
@@ -6,9 +11,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hdfc.midterm.foodapp.dto.MenuItemsDto;
 import com.hdfc.midterm.foodapp.entity.MenuItems;
-
 import com.hdfc.midterm.foodapp.exception.ItemException;
+import com.hdfc.midterm.foodapp.exception.RestaurantException;
 import com.hdfc.midterm.foodapp.repository.MenuItemsRepository;
 
 @Service
@@ -17,14 +23,24 @@ public class MenuItemsServiceImp implements IMenuItemsService {
 	@Autowired
 	MenuItemsRepository repo;
 
+	@Autowired
+	IRestaurantsService service;
+
 	@Override
-	public MenuItems addItem(MenuItems item) throws ItemException {
+	public MenuItems addItem(MenuItemsDto item) throws ItemException, RestaurantException {
+
 		Optional<MenuItems> opt = repo.findById(item.getMenuItemId());
-		
+		MenuItems items = new MenuItems();
+		items.setItemName(item.getItemName());
+		items.setDescription(item.getDescription());
+		items.setAvailability(item.isAvailability());
+		items.setMenuItemId(item.getMenuItemId());
+		items.setPrice(item.getPrice());
+		items.setQuantity(item.getQuantity() - 1);
 		if (opt.isPresent()) {
 			throw new ItemException("Item already exists..");
 		} else {
-			return repo.save(item);
+			return repo.save(items);
 		}
 	}
 

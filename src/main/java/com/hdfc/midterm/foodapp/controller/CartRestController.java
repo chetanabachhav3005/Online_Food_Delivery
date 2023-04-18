@@ -1,3 +1,9 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Cart Rest Controller
+*/
+
 package com.hdfc.midterm.foodapp.controller;
 
 import javax.validation.Valid;
@@ -9,6 +15,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,8 +23,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hdfc.midterm.foodapp.dto.CartDto;
 import com.hdfc.midterm.foodapp.entity.Cart;
 import com.hdfc.midterm.foodapp.exception.CartException;
+import com.hdfc.midterm.foodapp.exception.CustomerException;
+import com.hdfc.midterm.foodapp.exception.ItemException;
 import com.hdfc.midterm.foodapp.service.ICartService;
-
 
 @RestController
 @RequestMapping("/cart")
@@ -27,7 +35,8 @@ public class CartRestController {
 	ICartService service;
 
 	@PostMapping("/register")
-	public ResponseEntity<Cart> saveCartDetails(@Valid @RequestBody CartDto fc) throws CartException {
+	public ResponseEntity<Cart> saveCartDetails(@Valid @RequestBody CartDto fc)
+			throws CartException, CustomerException, ItemException {
 
 		Cart c = service.saveCart(fc);
 		return new ResponseEntity<Cart>(c, HttpStatus.CREATED);
@@ -46,5 +55,12 @@ public class CartRestController {
 		Cart view = service.viewCart(cartId);
 		return new ResponseEntity<Cart>(view, HttpStatus.OK);
 
+	}
+
+	@PutMapping("/add/{cartId}/{itemId}")
+	public ResponseEntity<Cart> addItemToCart(@PathVariable("cartId") Long cartId, @PathVariable("itemId") Long itemId)
+			throws CartException, ItemException {
+		Cart updatedCart = service.addItem(cartId, itemId);
+		return new ResponseEntity<Cart>(updatedCart, HttpStatus.ACCEPTED);
 	}
 }

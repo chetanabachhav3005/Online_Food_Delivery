@@ -1,9 +1,14 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Cart Exception Class
+*/ 
 package com.hdfc.midterm.foodapp.exception;
 
 public class CartException extends Exception{
 	
 	public CartException() {
-		// TODO Auto-generated constructor stub
+	
 	}
 	
 	

@@ -1,8 +1,14 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Payment Rest Controller
+*/
 package com.hdfc.midterm.foodapp.controller;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.expression.AccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +21,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hdfc.midterm.foodapp.dto.PaymentDto;
 import com.hdfc.midterm.foodapp.entity.Payment;
+import com.hdfc.midterm.foodapp.exception.CustomerException;
+import com.hdfc.midterm.foodapp.exception.ItemException;
+import com.hdfc.midterm.foodapp.exception.OrderException;
 import com.hdfc.midterm.foodapp.exception.PaymentException;
 import com.hdfc.midterm.foodapp.service.IPaymentService;
 
@@ -26,7 +35,8 @@ public class PaymentRestController {
 	IPaymentService service;
 
 	@PostMapping("/add")
-	public ResponseEntity<Payment> generateBill(@Valid @RequestBody PaymentDto payment) throws PaymentException {
+	public ResponseEntity<Payment> generateBill(@Valid @RequestBody PaymentDto payment)
+			throws PaymentException, OrderException {
 		Payment pt = service.addPayment(payment);
 		return new ResponseEntity<Payment>(pt, HttpStatus.CREATED);
 
@@ -43,6 +53,13 @@ public class PaymentRestController {
 	public ResponseEntity<Payment> viewPayment(@PathVariable("paymentId") int paymentId) throws PaymentException {
 		Payment pt = service.viewPayment(paymentId);
 		return new ResponseEntity<Payment>(pt, HttpStatus.ACCEPTED);
+	}
+
+	@GetMapping("/viewtotal/{customerId}")
+	public ResponseEntity<String> getTotalByCustomerId(@PathVariable("customerId") Long customerId)
+			throws ItemException, CustomerException, AccessException {
+		String total = service.generateTotalBillById(customerId);
+		return new ResponseEntity<String>(total, HttpStatus.OK);
 	}
 
 }

@@ -1,4 +1,11 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Address DTO class for Address Entity Class
+*/ 
 package com.hdfc.midterm.foodapp.dto;
+
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,6 +21,7 @@ import lombok.ToString;
 
 public class AddressDto {
 
+	@NotNull
 	private Integer addressId;
 
 	private String area;

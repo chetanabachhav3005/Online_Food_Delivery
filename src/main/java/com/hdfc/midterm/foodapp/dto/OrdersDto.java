@@ -1,3 +1,8 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Order DTO Class for Order Entity Class
+*/ 
 package com.hdfc.midterm.foodapp.dto;
 
 import java.time.LocalDate;
@@ -17,13 +22,9 @@ import lombok.ToString;
 public class OrdersDto {
 
     private long orderId;
-    private long customerId;
-    private long restaurant_id;
     private LocalDate orderDate;
-    private String deliveryAddress;
-    private String paymentMethod;
-    private double totalAmount;
-    
+    private long customerId;
+	private long cartId;
 }
 
 

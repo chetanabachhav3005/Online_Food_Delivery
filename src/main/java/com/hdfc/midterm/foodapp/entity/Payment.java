@@ -1,12 +1,20 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Payement Entity Class
+*/ 
+
 package com.hdfc.midterm.foodapp.entity;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -32,15 +40,17 @@ public class Payment {
 	private int paymentId;
 
 	@Column(name = "Payment_Date")
-	@NotNull
-	private LocalDateTime paymentDate;
+	private LocalDate paymentDate;
 
 	@Column(name = "Total_cost")
 	@NotNull
 	private Double totalCost;
 
-	@Column(name = "Total_Item")
-	@NotNull
+
+	@Column(name="Total_Item")
 	private Integer totalItem;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private Orders order;
 
 }

@@ -1,3 +1,8 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Restaurant Rest Controller
+*/
 package com.hdfc.midterm.foodapp.controller;
 
 import java.util.List;
@@ -16,7 +21,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hdfc.midterm.foodapp.dto.RestaurantsDto;
 import com.hdfc.midterm.foodapp.entity.Restaurants;
+import com.hdfc.midterm.foodapp.exception.AddressException;
 import com.hdfc.midterm.foodapp.exception.RestaurantException;
 import com.hdfc.midterm.foodapp.service.IRestaurantsService;
 
@@ -28,8 +35,8 @@ public class RestaurantsRestController {
 	IRestaurantsService service;
 
 	@PostMapping("/add/restaurant")
-	public ResponseEntity<Restaurants> saveResturant(@Valid @RequestBody Restaurants restaurant)
-			throws RestaurantException {
+	public ResponseEntity<Restaurants> saveResturant(@Valid @RequestBody RestaurantsDto restaurant)
+			throws RestaurantException, AddressException {
 
 		Restaurants newRestaurant = service.addRestaurant(restaurant);
 

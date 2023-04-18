@@ -1,9 +1,14 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Item Exception Class
+*/ 
 package com.hdfc.midterm.foodapp.exception;
 
 public class ItemException extends Exception {
 	
 	public ItemException() {
-		// TODO Auto-generated constructor stub
+	
 	}
 	
 

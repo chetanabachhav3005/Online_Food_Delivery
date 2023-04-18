@@ -1,4 +1,13 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Restaurant DTO Class fro Restaurant Entity Class
+*/ 
 package com.hdfc.midterm.foodapp.dto;
+
+import java.util.List;
+
+import com.hdfc.midterm.foodapp.entity.MenuItems;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,9 +30,8 @@ public class RestaurantsDto {
 	private String restaurantName;
 	private String cuisineType;
 	private String location;
-	private String rating;
+	private int addressId;
 	
-	
-	
+	private List<MenuItems> itemList;
 }
 

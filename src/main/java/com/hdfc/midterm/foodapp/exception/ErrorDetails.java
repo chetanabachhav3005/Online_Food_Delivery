@@ -1,6 +1,9 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Error details class for exception message
+*/ 
 package com.hdfc.midterm.foodapp.exception;
-
-import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

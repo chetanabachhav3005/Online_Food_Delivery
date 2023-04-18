@@ -1,4 +1,11 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Order Rest Controller
+*/
 package com.hdfc.midterm.foodapp.controller;
+
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -14,8 +21,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hdfc.midterm.foodapp.dto.OrdersDto;
+import com.hdfc.midterm.foodapp.entity.MenuItems;
 import com.hdfc.midterm.foodapp.entity.Orders;
+import com.hdfc.midterm.foodapp.exception.AddressException;
+import com.hdfc.midterm.foodapp.exception.CartException;
+import com.hdfc.midterm.foodapp.exception.CustomerException;
 import com.hdfc.midterm.foodapp.exception.OrderException;
+import com.hdfc.midterm.foodapp.exception.PaymentException;
 import com.hdfc.midterm.foodapp.service.IOrdersService;
 
 @RestController
@@ -26,7 +39,8 @@ public class OrderRestController {
 	IOrdersService service;
 
 	@PostMapping("/save/order")
-	public ResponseEntity<Orders> saveOrder(@Valid @RequestBody Orders order) throws OrderException {
+	public ResponseEntity<Orders> saveOrder(@Valid @RequestBody OrdersDto order)
+			throws OrderException, PaymentException, AddressException, CartException, CustomerException {
 
 		Orders order1 = service.addOrder(order);
 
@@ -54,6 +68,14 @@ public class OrderRestController {
 
 		Orders order = service.viewOrder(orderId);
 		return new ResponseEntity<Orders>(order, HttpStatus.CREATED);
+	}
+
+	@GetMapping("/viewbycustomer/{customerId}")
+	public ResponseEntity<List<MenuItems>> viewAllOrders(@PathVariable("customerId") Long customerId)
+			throws OrderException, CustomerException {
+
+		return new ResponseEntity<List<MenuItems>>(service.viewAllOrdersByCustomer(customerId), HttpStatus.FOUND);
+
 	}
 
 }

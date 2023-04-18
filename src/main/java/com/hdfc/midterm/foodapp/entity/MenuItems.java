@@ -1,3 +1,8 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Items Entity Class
+*/ 
 package com.hdfc.midterm.foodapp.entity;
 
 import javax.persistence.Column;
@@ -29,10 +34,6 @@ public class MenuItems {
 	@Column(unique=true,name="Item_Id")
 	private long menuItemId;
 	
-	@Column(name="Restaurant_Id")
-	@NotNull
-	private long restaurantId;
-	
 	
 	@Column(name="Item_Name")
 	@NotNull
@@ -49,6 +50,12 @@ public class MenuItems {
 	@Column(name="Availability")
 	@NotNull
 	private boolean availability;
+	
+	
+	@Column(name="Quantity")
+	private Integer quantity;
+	
+	
 	
 }
 

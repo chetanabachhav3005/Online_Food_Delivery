@@ -1,9 +1,17 @@
+/*
+Author:Chetana Bachhav
+Date:
+Description:Global Exception class for all exception classes
+*/ 
 package com.hdfc.midterm.foodapp.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.context.request.WebRequest;
+
+import com.hdfc.midterm.foodapp.auth.exception.AuthorizationException;
 
 
 
@@ -91,5 +99,15 @@ public class GlobalExceptionClass {
 		return  new ResponseEntity<ErrorDetails>(err,HttpStatus.EXPECTATION_FAILED);
 		
 	}
+	@ExceptionHandler(AuthorizationException.class)
+	public ResponseEntity<ErrorDetails> authExceptionHandler(AuthorizationException ae , WebRequest wr){
+		ErrorDetails err = new ErrorDetails();
+		
+		err.setMessage(ae.getMessage());
+	
+		
+		return new ResponseEntity<ErrorDetails>(err, HttpStatus.BAD_REQUEST);
+	}
+	
 	
 }
