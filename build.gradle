@@ -33,8 +33,6 @@ dependencies {
 	testImplementation 'io.projectreactor:reactor-test'
 	// https://mvnrepository.com/artifact/io.micrometer/micrometer-registry-prometheus
 implementation group: 'io.micrometer', name: 'micrometer-registry-prometheus', version: '1.10.3'
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
-//implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '3.0.5'
 	
 	
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
