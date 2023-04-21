@@ -23,5 +23,6 @@ public class RatingDto {
 	private int ratingId;
 	private long restaurantId;
 	private long customerId;
+	//private int rating;
 	
 }

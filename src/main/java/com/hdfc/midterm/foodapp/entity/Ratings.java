@@ -40,5 +40,5 @@ public class Ratings {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Customers customer;
 	
-	
+	//private int rating;
 }

@@ -35,7 +35,7 @@ import lombok.ToString;
 @Table(name="Cart")
 public class Cart {
 
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(unique=true,name="Cart_Id")
